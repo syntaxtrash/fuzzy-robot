@@ -107,11 +107,10 @@ let phone1 = <HTMLInputElement>document.getElementById("phone");
 console.log(phone.value);
 console.log(phone1.value);
 
-function render(document: unknown) {
-	if (typeof document === "string") {
-		document.toUpperCase();
-	}
-	document.move();
-	document.fly();
-	document.whatever();
+function p(): never {
+	while (true) {}
 }
+
+p();
+// unreachable, will never execute
+console.log("Hello");
