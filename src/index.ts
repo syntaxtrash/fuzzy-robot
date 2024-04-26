@@ -54,3 +54,18 @@ function ktw(w: number | string): number {
 
 console.log(ktw(10));
 console.log(ktw("10kg"));
+
+type Draggable = {
+	drag: () => void;
+};
+
+type Resizable = {
+	resize: () => void;
+};
+
+type UIWidget = Draggable & Resizable;
+
+let textBox: UIWidget = {
+	drag: () => {},
+	resize: () => {},
+};
