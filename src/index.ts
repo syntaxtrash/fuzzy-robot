@@ -1,7 +1,6 @@
-let age: number = 22;
+let sales: number = 123_456_789;
+let coutse: string = "Typescript";
+let is_published: boolean = true;
+let level;
 
-if (age > 20) {
-	age += 10;
-}
-
-console.log(age);
+let numbers: number[] = [1, 2, 3];
