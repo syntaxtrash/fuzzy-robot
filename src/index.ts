@@ -74,3 +74,13 @@ type Quantity = 50 | 100;
 type Metric = "cm " | "inch";
 
 let q: Quantity = 100;
+
+function greet(name: string | null | undefined) {
+	if (name) {
+		console.log(name.toUpperCase());
+	} else {
+		console.log("Allo");
+	}
+}
+
+greet(null);
