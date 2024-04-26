@@ -43,3 +43,14 @@ let employee: Employee = {
 		console.log(date);
 	},
 };
+
+function ktw(w: number | string): number {
+	if (typeof w === "number") {
+		return w * 2.2;
+	} else {
+		return parseInt(w) * 2.2;
+	}
+}
+
+console.log(ktw(10));
+console.log(ktw("10kg"));
