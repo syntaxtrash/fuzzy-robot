@@ -95,3 +95,8 @@ function getCustomer(id: number): Customer | null | undefined {
 
 let customer = getCustomer(0);
 console.log(customer?.birthdate?.getFullYear());
+
+let speed: number | null = null;
+let ride = {
+	speed: speed ?? 30,
+};
