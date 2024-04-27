@@ -136,12 +136,21 @@ class Account {
 
 	private calcTax() {}
 
-	getBalance(): number {
+	get balance(): number {
 		return this._balance;
+	}
+
+	set balance(val: number) {
+		if (val < 0) {
+			throw new Error("Invalid value");
+		} else {
+			this._balance = val;
+		}
 	}
 }
 let account = new Account(1, "Juan", 0);
 account.deposit(100);
 console.log(account);
+console.log(account.balance);
 console.log(typeof account);
 console.log(account instanceof Account);
