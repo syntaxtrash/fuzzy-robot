@@ -298,22 +298,38 @@
 
 // let numbers = ArrayUtils.wrapInArray("1");
 
-interface Result<T> {
-	data: T | null;
-	error: string | null;
+// interface Result<T> {
+// 	data: T | null;
+// 	error: string | null;
+// }
+
+// function fetch<T>(url: string): Result<T> {
+// 	return { data: null, error: null };
+// }
+
+// interface User {
+// 	username: string;
+// }
+
+// interface Product {
+// 	title: string;
+// }
+
+// let result = fetch<User>("url");
+// result.data?.username;
+
+// interface Person {
+// 	name: string;
+// }
+
+class Person {
+	constructor(public name: string) {}
 }
 
-function fetch<T>(url: string): Result<T> {
-	return { data: null, error: null };
+class Customer extends Person {}
+
+function echo<T extends Person>(value: T): T {
+	return value;
 }
 
-interface User {
-	username: string;
-}
-
-interface Product {
-	title: string;
-}
-
-let result = fetch<User>("url");
-result.data?.username;
+echo(new Customer("a"));
