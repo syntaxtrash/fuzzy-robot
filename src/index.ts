@@ -239,18 +239,47 @@
 // 	new Principal("Maria", "Clara"),
 // ]);
 
-abstract class Shape {
-	constructor(public color: string) {}
+// abstract class Shape {
+// 	constructor(public color: string) {}
 
-	abstract render(): void;
+// 	abstract render(): void;
+// }
+
+// class Circle extends Shape {
+// 	constructor(public radius: number, color: string) {
+// 		super(color);
+// 	}
+
+// 	override render(): void {
+// 		console.log("Rendering a circle");
+// 	}
+// }
+
+// abstract class Calender {
+// 	constructor(public name: string) {}
+
+// 	abstract addEvent(): void;
+// 	abstract removeEvent(): void;
+// }
+
+interface Calender {
+	name: string;
+	addEvent(): void;
+	removeEvent(): void;
 }
 
-class Circle extends Shape {
-	constructor(public radius: number, color: string) {
-		super(color);
+interface CloudCalender extends Calender {
+	sync(): void;
+}
+
+class GoogleCalendar implements Calender {
+	constructor(public name: string) {}
+
+	addEvent(): void {
+		throw new Error("Method not implemented.");
 	}
 
-	override render(): void {
-		console.log("Rendering a circle");
+	removeEvent(): void {
+		throw new Error("Method not implemented.");
 	}
 }
