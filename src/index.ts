@@ -284,8 +284,16 @@
 // 	}
 // }
 
-class KeyValuePair<T, U> {
-	constructor(public key: T, public value: U) {}
+// class KeyValuePair<T, U> {
+// 	constructor(public key: T, public value: U) {}
+// }
+
+// let pair = new KeyValuePair<string, string>("1", "Apple");
+
+class ArrayUtils {
+	static wrapInArray<T>(value: T) {
+		return [value];
+	}
 }
 
-let pair = new KeyValuePair<string, string>("1", "Apple");
+let numbers = ArrayUtils.wrapInArray("1");
