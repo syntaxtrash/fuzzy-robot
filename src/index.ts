@@ -164,27 +164,51 @@
 // seats.A1 = "Juan";
 // seats.A2 = "Pedro";
 
-class Ride {
-	private static _activeRides: number = 0;
+// class Ride {
+// 	private static _activeRides: number = 0;
 
-	start() {
-		Ride._activeRides++;
+// 	start() {
+// 		Ride._activeRides++;
+// 	}
+
+// 	stop() {
+// 		Ride._activeRides--;
+// 	}
+
+// 	static get activeRides() {
+// 		return Ride._activeRides;
+// 	}
+// }
+
+// let ride1 = new Ride();
+// ride1.start();
+
+// let ride2 = new Ride();
+// ride2.start();
+
+// console.log(Ride.activeRides);
+// console.log(Ride.activeRides);
+
+class Person {
+	constructor(public firstName: string, public lastName: string) {}
+
+	get fullName(): string {
+		return `${this.firstName} ${this.lastName}`;
 	}
 
-	stop() {
-		Ride._activeRides--;
-	}
-
-	static get activeRides() {
-		return Ride._activeRides;
+	walk() {
+		console.log("Walking");
 	}
 }
 
-let ride1 = new Ride();
-ride1.start();
+class Student extends Person {
+	constructor(public studentId: number, firstName: string, lastName: string) {
+		super(firstName, lastName);
+	}
 
-let ride2 = new Ride();
-ride2.start();
+	takeTest() {
+		console.log("Taking a test");
+	}
+}
 
-console.log(Ride.activeRides);
-console.log(Ride.activeRides);
+let student = new Student(1, "Juan", "Delacruz");
