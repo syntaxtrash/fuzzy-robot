@@ -117,40 +117,49 @@
 // 	},
 // ];
 
-class Account {
-	nickname?: string;
+// class Account {
+// 	nickname?: string;
 
-	constructor(
-		public readonly id: number,
-		public owner: string,
-		private _balance: number
-	) {}
+// 	constructor(
+// 		public readonly id: number,
+// 		public owner: string,
+// 		private _balance: number
+// 	) {}
 
-	deposit(amount: number): void {
-		if (amount <= 0) {
-			throw new Error("Invalid error");
-		} else {
-			this._balance += amount;
-		}
-	}
+// 	deposit(amount: number): void {
+// 		if (amount <= 0) {
+// 			throw new Error("Invalid error");
+// 		} else {
+// 			this._balance += amount;
+// 		}
+// 	}
 
-	private calcTax() {}
+// 	private calcTax() {}
 
-	get balance(): number {
-		return this._balance;
-	}
+// 	get balance(): number {
+// 		return this._balance;
+// 	}
 
-	set balance(val: number) {
-		if (val < 0) {
-			throw new Error("Invalid value");
-		} else {
-			this._balance = val;
-		}
-	}
+// 	set balance(val: number) {
+// 		if (val < 0) {
+// 			throw new Error("Invalid value");
+// 		} else {
+// 			this._balance = val;
+// 		}
+// 	}
+// }
+// let account = new Account(1, "Juan", 0);
+// account.deposit(100);
+// console.log(account);
+// console.log(account.balance);
+// console.log(typeof account);
+// console.log(account instanceof Account);
+
+class SeatAssignment {
+	[seatNumber: string]: string;
 }
-let account = new Account(1, "Juan", 0);
-account.deposit(100);
-console.log(account);
-console.log(account.balance);
-console.log(typeof account);
-console.log(account instanceof Account);
+
+let seats = new SeatAssignment();
+
+seats.A1 = "Juan";
+seats.A2 = "Pedro";
