@@ -389,19 +389,22 @@
 // store.find("name", "a");
 // store.find("price", 1);
 
-interface Product {
-	name: string;
-	price: number;
-}
+// interface Product {
+// 	name: string;
+// 	price: number;
+// }
 
-type ReadOnly<T> = {
-	readonly [K in keyof T]: T[K];
-};
+// type ReadOnly<T> = {
+// 	readonly [K in keyof T]: T[K];
+// };
 
-type Optional<T> = {
-	[K in keyof T]?: T[K];
-};
+// type Optional<T> = {
+// 	[K in keyof T]?: T[K];
+// };
 
-type Nullable<T> = {
-	[K in keyof T]: T[K] | null;
-};
+// type Nullable<T> = {
+// 	[K in keyof T]: T[K] | null;
+// };
+
+@Component
+class ProfileComponent {}
