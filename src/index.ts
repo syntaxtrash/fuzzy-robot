@@ -334,6 +334,38 @@
 
 // echo(new Customer("a"));
 
+// interface Product {
+// 	name: string;
+// 	price: number;
+// }
+
+// class Store<T> {
+// 	protected _object: T[] = [];
+
+// 	add(obj: T): void {
+// 		this._object.push(obj);
+// 	}
+// }
+
+// pass on the generic type param
+// class CompressibleStore<T> extends Store<T> {
+// 	compress() {}
+// }
+
+// restric the generic type param
+// class SearchableStore<T extends { name: string }> extends Store<T> {
+// 	find(name: string): T | undefined {
+// 		return this._object.find((obj) => obj.name === name);
+// 	}
+// }
+
+// fix the generic type param
+// class ProductStore extends Store<Product> {
+// 	filterByCateg(category: string): Product[] {
+// 		return [];
+// 	}
+// }
+
 interface Product {
 	name: string;
 	price: number;
@@ -345,23 +377,14 @@ class Store<T> {
 	add(obj: T): void {
 		this._object.push(obj);
 	}
-}
 
-// pass on the generic type param
-class CompressibleStore<T> extends Store<T> {
-	compress() {}
-}
-
-// restric the generic type param
-class SearchableStore<T extends { name: string }> extends Store<T> {
-	find(name: string): T | undefined {
-		return this._object.find((obj) => obj.name === name);
+	find(property: keyof T, value: unknown): T | undefined {
+		return this._object.find((obj) => obj[property] === value);
 	}
 }
 
-// fix the generic type param
-class ProductStore extends Store<Product> {
-	filterByCateg(category: string): Product[] {
-		return [];
-	}
-}
+let store = new Store<Product>();
+
+store.add({ name: "a", price: 1 });
+store.find("name", "a");
+store.find("price", 1);
