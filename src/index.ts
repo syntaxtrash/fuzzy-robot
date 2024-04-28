@@ -366,25 +366,42 @@
 // 	}
 // }
 
+// interface Product {
+// 	name: string;
+// 	price: number;
+// }
+
+// class Store<T> {
+// 	protected _object: T[] = [];
+
+// 	add(obj: T): void {
+// 		this._object.push(obj);
+// 	}
+
+// 	find(property: keyof T, value: unknown): T | undefined {
+// 		return this._object.find((obj) => obj[property] === value);
+// 	}
+// }
+
+// let store = new Store<Product>();
+
+// store.add({ name: "a", price: 1 });
+// store.find("name", "a");
+// store.find("price", 1);
+
 interface Product {
 	name: string;
 	price: number;
 }
 
-class Store<T> {
-	protected _object: T[] = [];
+type ReadOnly<T> = {
+	readonly [K in keyof T]: T[K];
+};
 
-	add(obj: T): void {
-		this._object.push(obj);
-	}
+type Optional<T> = {
+	[K in keyof T]?: T[K];
+};
 
-	find(property: keyof T, value: unknown): T | undefined {
-		return this._object.find((obj) => obj[property] === value);
-	}
-}
-
-let store = new Store<Product>();
-
-store.add({ name: "a", price: 1 });
-store.find("name", "a");
-store.find("price", 1);
+type Nullable<T> = {
+	[K in keyof T]: T[K] | null;
+};
