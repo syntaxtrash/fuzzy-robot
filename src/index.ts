@@ -322,14 +322,46 @@
 // 	name: string;
 // }
 
-class Person {
-	constructor(public name: string) {}
+// class Person {
+// 	constructor(public name: string) {}
+// }
+
+// class Customer extends Person {}
+
+// function echo<T extends Person>(value: T): T {
+// 	return value;
+// }
+
+// echo(new Customer("a"));
+
+interface Product {
+	name: string;
+	price: number;
 }
 
-class Customer extends Person {}
+class Store<T> {
+	protected _object: T[] = [];
 
-function echo<T extends Person>(value: T): T {
-	return value;
+	add(obj: T): void {
+		this._object.push(obj);
+	}
 }
 
-echo(new Customer("a"));
+// pass on the generic type param
+class CompressibleStore<T> extends Store<T> {
+	compress() {}
+}
+
+// restric the generic type param
+class SearchableStore<T extends { name: string }> extends Store<T> {
+	find(name: string): T | undefined {
+		return this._object.find((obj) => obj.name === name);
+	}
+}
+
+// fix the generic type param
+class ProductStore extends Store<Product> {
+	filterByCateg(category: string): Product[] {
+		return [];
+	}
+}
