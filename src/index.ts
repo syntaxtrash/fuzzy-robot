@@ -429,20 +429,45 @@
 // @Pipe
 // class ProfileComponent {}
 
-function Log(target: any, methodName: string, descriptor: PropertyDescriptor) {
-	const original = <Function>descriptor.value;
-	descriptor.value = function (...args: any) {
-		console.log("before");
-		original.call(this, ...args);
-		console.log("after");
+// function Log(target: any, methodName: string, descriptor: PropertyDescriptor) {
+// 	const original = <Function>descriptor.value;
+// 	descriptor.value = function (...args: any) {
+// 		console.log("before");
+// 		original.call(this, ...args);
+// 		console.log("after");
+// 	};
+// }
+// class Person {
+// 	say(message: string) {
+// 		console.log(`Person says ${message}`);
+// 	}
+// }
+
+// let person = new Person();
+
+// person.say("Pahingi");
+
+function Capitalize(
+	target: any,
+	methodName: string,
+	descriptor: PropertyDescriptor
+) {
+	const original = descriptor.get;
+	descriptor.get = function () {
+		const result = original?.call(this);
+
+		return typeof result === "string" ? result.toUpperCase() : result;
 	};
 }
 class Person {
-	say(message: string) {
-		console.log(`Person says ${message}`);
+	constructor(public firstName: string, public lastName: string) {}
+
+	@Capitalize
+	get fullname() {
+		return `${this.firstName} ${this.lastName}`;
 	}
 }
 
-let person = new Person();
+let person = new Person("juan", "delacruz");
 
-person.say("Pahingi");
+console.log(person.fullname);
