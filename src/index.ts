@@ -421,5 +421,10 @@ function Component(options: ComponentOptions) {
 	};
 }
 
-@Component({selector: "#my-profile")
+function Pipe(constructor: Function) {
+	console.log("Pipe decorator called");
+	constructor.prototype.pipe = true;
+}
+@Component({ selector: "#my-profile" })
+@Pipe
 class ProfileComponent {}
