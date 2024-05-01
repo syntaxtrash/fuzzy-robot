@@ -406,5 +406,13 @@
 // 	[K in keyof T]: T[K] | null;
 // };
 
+function Component(constructor: Function) {
+	console.log("Component deco called");
+	constructor.prototype.uniqueId = Date.now();
+	constructor.prototype.insertInDom = () => {
+		console.log("Inserting component in the DOM");
+	};
+}
+
 @Component
 class ProfileComponent {}
