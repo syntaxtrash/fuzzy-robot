@@ -406,13 +406,20 @@
 // 	[K in keyof T]: T[K] | null;
 // };
 
-function Component(constructor: Function) {
-	console.log("Component deco called");
-	constructor.prototype.uniqueId = Date.now();
-	constructor.prototype.insertInDom = () => {
-		console.log("Inserting component in the DOM");
+type ComponentOptions = {
+	selector: string;
+};
+
+function Component(options: ComponentOptions) {
+	return (constructor: Function) => {
+		console.log("Component deco called");
+		constructor.prototype.options = options;
+		constructor.prototype.uniqueId = Date.now();
+		constructor.prototype.insertInDom = () => {
+			console.log("Inserting component in the DOM");
+		};
 	};
 }
 
-@Component
+@Component({selector: "#my-profile")
 class ProfileComponent {}
