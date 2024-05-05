@@ -524,8 +524,11 @@
 
 // console.log(watchParameters);
 
-import { Circle } from "./shapes.js";
-let shape = new Circle(10)
+// import { Circle } from "./shapes.js";
+// let shape = new Circle(10)
 
-console.log(shape);
+// console.log(shape);
 
+import Store from "./storage.js";
+let store = new Store()
+console.log(store);
