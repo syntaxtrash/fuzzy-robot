@@ -529,6 +529,8 @@
 
 // console.log(shape);
 
-import Store from "./storage.js";
-let store = new Store()
-console.log(store);
+import * as Shapes from "./shapes.js";
+
+let circle = new Shapes.Circle(1)
+
+console.log(circle);
