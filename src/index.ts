@@ -524,7 +524,7 @@
 
 // console.log(watchParameters);
 
-import { Circle } from "./shapes";
+import { Circle } from "./shapes.js";
 let shape = new Circle(10)
 
 console.log(shape);
