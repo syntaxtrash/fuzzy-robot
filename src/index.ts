@@ -529,8 +529,17 @@
 
 // console.log(shape);
 
-import * as Shapes from "./shapes.js";
+// import * as Shapes from "./shapes/shapes.js";
+// import * as CircleJs from "./shapes/Circle.js";
 
-let circle = new Shapes.Circle(1)
+// let circle = new CircleJs.Circle(1)
+
+// console.log(circle);
+
+
+import { Circle } from "./shapes/index.js"
+
+
+let circle = new Circle(1)
 
 console.log(circle);
